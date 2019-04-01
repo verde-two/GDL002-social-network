@@ -15,6 +15,7 @@ function checkIn() {
       console.log(errorCode, errorMessage);
     });
 }
+
 function singIn() {
   let textEmail1 = document.getElementById("email").value;
   let textPassword1 = document.getElementById("password").value;
@@ -32,6 +33,7 @@ function singIn() {
 function observer() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      console.log("existe usuario");
       observing();
       // User is signed in.
       console.log(user);
@@ -43,6 +45,7 @@ function observer() {
       var uid = user.uid;
       var providerData = user.providerData;
       // ...
+      console.log ("no existe usuario");
     } else {
     }
   });
@@ -66,8 +69,19 @@ user.sendEmailVerification().then(function() {
   console.log(error);
 });
 }
-const btnGoogle= document.getElementById("google");
+const btnClose= document.getElementById("close");
+btnClose.addEventListener("click", function(){
+  firebase.auth().signOut().then(function() {
+    location.reload();
+    // Sign-out successful.
+    console.log("listo");
+  }).catch(function(error) {
+    // An error happened.
+    console.log(error);
+  });
+});
 
+const btnGoogle= document.getElementById("google");
  btnGoogle.addEventListener("click", function(){
 
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -89,4 +103,5 @@ const btnGoogle= document.getElementById("google");
   }); 
  
  });
+
 

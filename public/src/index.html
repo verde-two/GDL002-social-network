@@ -12,16 +12,14 @@
 </head>
 
 <body>
-  <header>
-    <div id="logo">
-      <img
-        src="https://lh3.googleusercontent.com/qk59jRHd1CWrjnqIup-VmIvRCmkU0qgG9yYm_BirNcQfZfwGA5Z64veUVvYP_nhb05SdM-2hA4-fpGibFzc5cirMnWwzEkX89HaVitybN2Y6hXQ2zFpwEe0m2Co26oiG0a-DCVFEE8uKCQ-D8oaBmVPBb62PBPwzjxFJV3EUGPzkIQyqbPF-uYBbNFEnFAjQqxkR19Z7fZVA8zMn5ZYH6pWU5Pqg1nDorCozSHYN8xr5tgL2hqks5sonZNK2PGdB9Z42K66JMjvDJqSe6-FKQDNJcK45VRUvY1XBJIOVwAFrbNhcgZXEXw0uCbOQnvZ3ITOSEJ1ecXPweb9X7kBla-w1mUd4_Hf4g2vim4YuR3Q4vN0KChQXPLj0bQHV2YstuJg7EcLpT_RykGqSSGNeE0dWsAhErQIthAVZRSlFbhNSDpJlGRIe75hgiqu1HI6o7iRFpy9uTrrC-yc4CQAoenVZiHK5ZPyXP_Sa1x7pkT_C0DJWA-n7bWTiKDkZlBJqTT2zIgR6QiUICO6nvQ01iyY1IXanuHfS2sSGR9Lg4ejK0vnK494tXb5Mfs4wFAhsEhJ34oqZFv4aYDeDM45exfHnXwAFRte9GjpwlmUXvTgALJTtcX5Ge4UpYsFgkn2OcbgOmAIbL-bRCzBSVdWUQ2XC=s200-no"
-        alt="" class="img">
-    </div>
-  </header>
   <div id="screen1">
+      <img
+      src="https://lh3.googleusercontent.com/RnyA1kU8hLkUMbDICeeDspL3YUeKZPzCrJeZaeLAnjnRBTtSx-iOjPe-RdgzyLB_3tHZvcEBmWui8OVSnKI8MWkVxSLA_YqkjzygB1pOL2zIwa8lNZUtICpLMHaB6n81awlapYb49mOLVXSL_FvMC75TDh0PeOTaFz1HrMBpMICBkn_9XR1ptJzDGwZuqXhFOI-8WGY2Qdzwbw0KbFvVujYkhCzqIv1dD8h9QsaI48NEtQiD7xJ2eKLU55MJWdMkP_osOylBElvFt4HfFxLBn8G2c2ElElm4-LwiFLOwFEri8eCMFAlrtzQcIbOdy7SsaYhQEtrHYHWy3qw5qaqasDnLO82rmKQ-jvO_TsWElPRBooq_fXwkVQm3ZDk-e90zC4B0V23MgRs1PTYr3t-FAwpi5c7irHiq2w3jY7fIH6kGEs9s_q1PgraTjjwpN-CM2PBjU30_on72MSxmII-pOlW6mWueVQ0unZiwMXUhAHdRdDIcFmM_FMw8P2vZfGX0HuddLVPunzXcBAIBS1vaEefcrTC8Ig39X4yDd4Pmh53IMjZmE_wfVsTy5EgBQMsd10WgeazWUIeYgPQSNqWf0IH0KXO1IOUaB5B8rgAvlEmRBut-bzI9OLCNdZMULaPPKQzOTFBx05EkdyBmYSobMnpQJDK0AcF5xLLjmOKu1Ol47JHCbqzcG5u0JOXv36M7rX104PrctNggq34VbQ=s200-no"
+      alt="" class="img">
+     <div class="social">
       <h1 class="title">Iniciar Sesion</h1>
-      <input type="text" id="email" placeholder="E-mail" required></input><br><br>
+      <input type="email" id="email" placeholder="E-mail" required></input>
+      <span id="emailOK"></span><br><br>
       <input type="password" id="password" placeholder="Password" required></input><br><br>
       <label class="remember">He leído y estoy de acuerdo con</label>
       <a href="#"><span>el uso</span></a>
@@ -29,19 +27,16 @@
       <a href="#"> <span>Politica</span></a><br>
       <button class="buttonLoginStyle" id="buttonLogin" onclick="checkIn()">Registrarte</button>
       <button class="buttonLoginStyle" id="buttonLogin" onclick="singIn()">Iniciar Sesion</button>
-      <div id="social">
+    </div>
+      <div class="social">
         <span id="sing">O inicia con las redes sociales.</span><br><br>
         <button id="facebook" class="buttons"> Facebook</button>
         <button id="google" class=" buttons ">Google</button>
       </div><br>
   </div>
-
-  <div id="totalaccses">
-    <button>
-      hhihuihi
-    </button>
-    
-  </div>
+<div id="screen1" >
+    <button id="close"> cerra sesion</button>
+</div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -54,15 +49,7 @@
     crossorigin="anonymous"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
-    <!-- update the version number as needed -->
-    <script defer src="/__/firebase/5.9.1/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
-    <script defer src="/__/firebase/5.9.1/firebase-auth.js"></script>
-    <script defer src="/__/firebase/5.9.1/firebase-database.js"></script>
-    <script defer src="/__/firebase/5.9.1/firebase-messaging.js"></script>
-    <script defer src="/__/firebase/5.9.1/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
-    <script defer src="/__/firebase/init.js"></script>
+   
 
     
   </body>
