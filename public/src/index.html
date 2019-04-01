@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>GREENTREE</title>
 </head>
@@ -21,28 +20,28 @@
     </div>
   </header>
   <div id="screen1">
-    <content class="content">
       <h1 class="title">Iniciar Sesion</h1>
-      <input type="text" id="email" placeholder="E-mail"></input><br><br>
-      <input type="password" id="password" placeholder="Password"></input><br><br>
+      <input type="text" id="email" placeholder="E-mail" required></input><br><br>
+      <input type="password" id="password" placeholder="Password" required></input><br><br>
       <label class="remember">He leído y estoy de acuerdo con</label>
       <a href="#"><span>el uso</span></a>
       <label>y</label>
       <a href="#"> <span>Politica</span></a><br>
-      <button id="buttonLogin" onclick="checkIn()">Registrarte</button>
-      <button id="buttonLogin" onclick="singIn()">Iniciar Sesion</button>
+      <button class="buttonLoginStyle" id="buttonLogin" onclick="checkIn()">Registrarte</button>
+      <button class="buttonLoginStyle" id="buttonLogin" onclick="singIn()">Iniciar Sesion</button>
       <div id="social">
         <span id="sing">O inicia con las redes sociales.</span><br><br>
         <button id="facebook" class="buttons"> Facebook</button>
         <button id="google" class=" buttons ">Google</button>
       </div><br>
-    </content>
   </div>
 
   <div id="totalaccses">
+    <button>
+      hhihuihi
+    </button>
     
   </div>
-
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -55,7 +54,16 @@
     crossorigin="anonymous"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
-  
-</body>
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/5.9.1/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/5.9.1/firebase-auth.js"></script>
+    <script defer src="/__/firebase/5.9.1/firebase-database.js"></script>
+    <script defer src="/__/firebase/5.9.1/firebase-messaging.js"></script>
+    <script defer src="/__/firebase/5.9.1/firebase-storage.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+    <script defer src="/__/firebase/init.js"></script>
 
+    
+  </body>
 </html>
