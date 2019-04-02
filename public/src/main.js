@@ -33,8 +33,9 @@ function singIn() {
 function observer() {
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
+      document.getElementById("screen2").style.display = "block"
+      document.getElementById("screen1").style.display = "none"
       console.log("existe usuario");
-      observing();
       // User is signed in.
       console.log(user);
       var displayName = user.displayName;
@@ -52,12 +53,6 @@ function observer() {
 }
 observer();
 
-function observing() {
-  let acces=document.getElementById("totalaccses");
-  let screens= document.getElementById("screen1");
-  screens.style.display= "none";
-  acces.style.display= "block";
-}
 function verific(){
   var user = firebase.auth().currentUser;
 

@@ -28,7 +28,9 @@
       top: 5px;
     }
     
-
+    #screen2{
+      display:none;
+    }
     .social {
       float:center;
       width: 100%;

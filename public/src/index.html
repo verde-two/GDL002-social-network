@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <title>GREENTREE</title>
 </head>
 
 <body>
-  <div id="screen1">
-      <img
+   <!-- Pantalla 1 iniciar sesion -->
+  <div id="screen1" class="page">
+    <img
       src="https://lh3.googleusercontent.com/RnyA1kU8hLkUMbDICeeDspL3YUeKZPzCrJeZaeLAnjnRBTtSx-iOjPe-RdgzyLB_3tHZvcEBmWui8OVSnKI8MWkVxSLA_YqkjzygB1pOL2zIwa8lNZUtICpLMHaB6n81awlapYb49mOLVXSL_FvMC75TDh0PeOTaFz1HrMBpMICBkn_9XR1ptJzDGwZuqXhFOI-8WGY2Qdzwbw0KbFvVujYkhCzqIv1dD8h9QsaI48NEtQiD7xJ2eKLU55MJWdMkP_osOylBElvFt4HfFxLBn8G2c2ElElm4-LwiFLOwFEri8eCMFAlrtzQcIbOdy7SsaYhQEtrHYHWy3qw5qaqasDnLO82rmKQ-jvO_TsWElPRBooq_fXwkVQm3ZDk-e90zC4B0V23MgRs1PTYr3t-FAwpi5c7irHiq2w3jY7fIH6kGEs9s_q1PgraTjjwpN-CM2PBjU30_on72MSxmII-pOlW6mWueVQ0unZiwMXUhAHdRdDIcFmM_FMw8P2vZfGX0HuddLVPunzXcBAIBS1vaEefcrTC8Ig39X4yDd4Pmh53IMjZmE_wfVsTy5EgBQMsd10WgeazWUIeYgPQSNqWf0IH0KXO1IOUaB5B8rgAvlEmRBut-bzI9OLCNdZMULaPPKQzOTFBx05EkdyBmYSobMnpQJDK0AcF5xLLjmOKu1Ol47JHCbqzcG5u0JOXv36M7rX104PrctNggq34VbQ=s200-no"
       alt="" class="img">
-     <div class="social">
+    <div class="social">
       <h1 class="title">Iniciar Sesion</h1>
       <input type="email" id="email" placeholder="E-mail" required></input>
       <span id="emailOK"></span><br><br>
@@ -28,15 +30,56 @@
       <button class="buttonLoginStyle" id="buttonLogin" onclick="checkIn()">Registrarte</button>
       <button class="buttonLoginStyle" id="buttonLogin" onclick="singIn()">Iniciar Sesion</button>
     </div>
-      <div class="social">
-        <span id="sing">O inicia con las redes sociales.</span><br><br>
-        <button id="facebook" class="buttons"> Facebook</button>
-        <button id="google" class=" buttons ">Google</button>
-      </div><br>
+    <div class="social">
+      <span id="sing">O inicia con las redes sociales.</span><br><br>
+      <button id="facebook" class="buttons"> Facebook</button>
+      <button id="google" class=" buttons ">Google</button>
+    </div><br>
   </div>
-<div id="screen1" >
-    <button id="close"> cerra sesion</button>
-</div>
+
+  <!-- Pantalla 2 de Post -->
+  <div id="screen2" class="page">
+    <header class="container-fluid">
+      <button id="close"> cerra sesion</button>
+      <h1>Postear</h1>
+    </header>
+
+    <div class="container"></div>
+    <!-- Introducir datos -->
+    <div class="new-post"></div>
+    <div id="sub-menu">
+      <div id="left-bar">
+        <div class="heading">
+          Notifications
+        </div>
+      </div>
+      <div id="right-bar">
+      </div>
+    </div>
+    <div id="main-window">
+      <div class="post">
+        <div class="user">
+          <div class="user-img"></div>
+          <div class="user-info">
+            <div class="user-name" id="nombre">NOMBRE</div>
+            <span class="post-date">
+              15/09/2019</span>
+          </div>
+          <div class="actions">
+            <span class="heart"></span>
+            <span class="comment"></span>
+            <span class="share"></span>
+          </div>
+        </div>
+        <div class="content">
+          <input type="text" id="comentario" placeholder="comentario">
+          <button class="btn-info" id="boton" onclick="guardar()">Guardar</button>
+        </div>
+      </div>
+      <div id="newPost"></div>
+    </div>
+  </div>
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -49,8 +92,9 @@
     crossorigin="anonymous"></script>
   <script src="data.js"></script>
   <script src="main.js"></script>
-   
 
-    
-  </body>
+
+
+</body>
+
 </html>
