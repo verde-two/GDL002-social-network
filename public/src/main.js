@@ -16,6 +16,15 @@ function checkIn() {
     });
 }
 
+function validarEmail( textEmail ) {
+  expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  if ( !expr.test(textEmail ) )
+      alert("Error: La dirección de correo " + textEmail  + " es incorrecta.");
+}
+
+let emailCorrect = document.getElementById("email").value;
+validarEmail( email );
+
 function singIn() {
   let textEmail1 = document.getElementById("email").value;
   let textPassword1 = document.getElementById("password").value;
@@ -45,6 +54,8 @@ function observer() {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      document.getElementById("img").innerHTML ="<img src='" +photoURL + "'class='pik'>";
+      document.getElementById("nombre").innerHTML =displayName 
       // ...
       console.log ("no existe usuario");
     } else {
@@ -52,6 +63,8 @@ function observer() {
   });
 }
 observer();
+
+
 
 function verific(){
   var user = firebase.auth().currentUser;
@@ -98,5 +111,5 @@ const btnGoogle= document.getElementById("google");
   }); 
  
  });
-
+ 
 

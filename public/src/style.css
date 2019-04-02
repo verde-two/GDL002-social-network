@@ -27,7 +27,16 @@
       margin-right: 10px;
       top: 5px;
     }
-    
+    .pik{
+      max-width: 4rem;
+      border-radius: 50%;
+    }
+    #close{
+      border-color: transparent;
+      background-color: transparent;
+      text-align: left;
+      color: white;
+    }
     #screen2{
       display:none;
     }
