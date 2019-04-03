@@ -16,27 +16,19 @@ function checkIn() {
     });
 }
 
-function validarEmail( textEmail ) {
-  expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  if ( !expr.test(textEmail ) )
-      alert("Error: La dirección de correo " + textEmail  + " es incorrecta.");
-}
-
-let emailCorrect = document.getElementById("email").value;
-validarEmail( email );
 
 function singIn() {
-  let textEmail1 = document.getElementById("email").value;
-  let textPassword1 = document.getElementById("password").value;
+  let data = prueba();
+  console.log(data);
   firebase
     .auth()
-    .signInWithEmailAndPassword(textEmail1, textPassword1)
+    .signInWithEmailAndPassword(data[0], data[1])
     .catch(function(error) {
-      // Handle Errors here.
+      document.getElementById("emailOK").innerHTML = error.message;
       var errorCode = error.code;
       var errorMessage = error.message;
       // ...
-      console.log(errorCode, errorMessage);
+     console.log(errorMessage, errorCode )
     });
 }
 function observer() {
@@ -89,7 +81,7 @@ btnClose.addEventListener("click", function(){
   });
 });
 
-const btnGoogle= document.getElementById("google");
+const btnGoogle = document.getElementById("google");
  btnGoogle.addEventListener("click", function(){
 
   var provider = new firebase.auth.GoogleAuthProvider();
@@ -112,4 +104,3 @@ const btnGoogle= document.getElementById("google");
  
  });
  
-

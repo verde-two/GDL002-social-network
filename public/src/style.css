@@ -48,7 +48,7 @@
       text-align: center;
       padding: .5rem;
     }
-    #buttonLogin {
+    .buttonLoginStyle {
       position: center;
       font-size: 1.1rem;
       padding: 10px;
