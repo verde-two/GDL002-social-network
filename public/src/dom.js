@@ -1,14 +1,15 @@
 function prueba() {
-    let arrayData = [];
     let textEmail1 = document.getElementById("email").value;
     let textPassword1 = document.getElementById("password").value;
-
-    arrayData.push(textEmail1);
-    arrayData.push(textPassword1);
-    return arrayData;
+    window.main.checkIn(textEmail1, textPassword1);
 }
+const btnchecIn= document.getElementById("buttonSingIn");
+  btnchecIn.addEventListener("click", prueba );
     
-    /*window.main.singIn( textEmail1, textPassword1);
+  const prueba2 =()=>{
+      let textEmail= document.getElementById("email").value;
+      let textPassword = document.getElementById("password").value;
+      window.main.checkIn(textEmail, textPassword);
   }
-  const login = document.getElementById("buttonSingIn");
-  login.addEventListener("click", sing);*/
+  const btnchecIn= document.getElementById("buttonLogin");
+  btnchecIn.addEventListener("click", prueba2 );

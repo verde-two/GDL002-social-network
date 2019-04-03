@@ -45,3 +45,9 @@ function checkLoginState() {
       statusChangeCallback(response);
     });
   }
+
+
+  document.getElementById("close");
+btnClose.addEventListener("click", function () {
+  document.getElementById("google");
+btnGoogle.addEventListener("click", function () {
