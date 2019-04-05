@@ -41,10 +41,19 @@ window.main ={
 
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider).then(function(result) {
+    console.log("ya la hisiste");
+    guardaDatos(result.user);
     // This gives you a Google Access Token. You can use it to access the Google API.
     var token = result.credential.accessToken;
     // The signed-in user info.
     var user = result.user;
+    var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        var providerData = user.providerData;
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -58,6 +67,17 @@ window.main ={
   }); 
  
  },
+ guardaDatos:(user)=>{
+  var usuario={
+    uid:user.uid,
+    nombre:user.displayName,
+    email:user.email,
+    foto:user.photoURL
+  }
+  firebase.database().ref("usuariosGoogle")
+  .push(usuario)
+}
+ 
  
 }
 
@@ -73,5 +93,106 @@ user.sendEmailVerification().then(function() {
 });
 }
 
+
+var db = firebase.firestore();
+//Agregar comentario
+function guardar(){
+  console.log("guardar")
+  let nombre = document.getElementById('nombre').value;
+  let fecha = document.getElementById('fecha').value;
+  let comentario = document.getElementById('comentario').value;
+  console.log(nombre, fecha, comentario)
+  db.collection("users").add({
+    first: nombre,
+    last: fecha,
+    born: comentario
+    })
+    .then(function(docRef) {
+    console.log("Document written with ID: ", docRef.id);
+    // Refrescar pantalla por medio de strin limpios
+      document.getElementById("nombre").value = " ";
+      document.getElementById("fecha").value = " ";
+      document.getElementById("comentario").value = " ";
+    })
+    .catch(function(error) {
+    console.error("Error adding document: ", error);
+    });
+}
+//Leer documentos
+var newPost = document.getElementById('newPost');
+db.collection("users").onSnapshot((querySnapshot) => {
+    newPost.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+        //console.log(`${doc.id} => ${doc.data().first}`);//
+    newPost.innerHTML += `
+    <div id="sub-menu">
+  <div id="left-bar">
+    <div class="heading">
+      Notifications
+    </div>
+  </div>
+  <div id="right-bar">
   
+  </div>
+</div>
+<div id="main-window">
+  <div class="post">
+    <div class="user">
+      <div class="user-img"></div>
+      <div class="user-info">
+        <div class="user-name my-3" >${doc.data().first}</div>
+        <span class="post-date my-3">${doc.data().last}</span>
+      </div>
+      <div class="actions">
+        <span class="heart"></span>
+        <span class="comment" onclick="eliminar('${doc.id}')"></span>
+        <span class="share" onclick="editar('${doc.id}','${doc.data().first}','${doc.data().last}','${doc.data().born}')"></span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="user-name">${doc.data().born}</div>
+      
+    </div>
+  </div>
+  `
+    });
+});
+//borrar documentos
+function eliminar(id){
+  db.collection("users").doc(id).delete().then(function() {
+      console.log("Document successfully deleted!");
+  }).catch(function(error) {
+      console.error("Error removing document: ", error);
+  });
+  }
+//editar documentos
+function editar(id,nombre,fecha,comentario){
+    document.getElementById('nombre').value=nombre;
+    document.getElementById('fecha').value=fecha;
+    document.getElementById('comentario').value=comentario;
+    var boton=document.getElementById('boton');
+    boton.innerHTML = 'Editar';
+    boton.onclick = function(){
+    var washingtonRef = db.collection("users").doc(id);   
+var nombre =document.getElementById('nombre').value;
+var apellido=document.getElementById('fecha').value;
+var fecha=document.getElementById('comentario').value;
+return washingtonRef.update({
+    first: nombre,
+    last: fecha,
+    born: comentario
+})
+.then(function() {
+    console.log("Document successfully updated!");
+    boton.innerHTML = 'guardar';
+    document.getElementById('nombre').value = "";
+    document.getElementById('fecha').value= "";
+    document.getElementById('comentario').value= "";
+})
+.catch(function(error) {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+}); 
+}
+}
 

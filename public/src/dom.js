@@ -22,7 +22,6 @@ function observer() {
         document.getElementById("screen1").style.display = "none"
         console.log("existe usuario");
         // User is signed in.
-        console.log(user);
         var displayName = user.displayName;
         var email = user.email;
         var emailVerified = user.emailVerified;
@@ -30,8 +29,7 @@ function observer() {
         var isAnonymous = user.isAnonymous;
         var uid = user.uid;
         var providerData = user.providerData;
-        document.getElementById("img").innerHTML ="<img src='" +photoURL + "'class='pik'>";
-        document.getElementById("nombre").innerHTML =displayName 
+        
         // ...
        
       } else {
@@ -53,5 +51,12 @@ function googlebtn(){
     const btnGoogle = document.getElementById("google");
  btnGoogle.addEventListener("click", googlebtn);
 
+/* esta funcion guarda los datos automaticamente//
 
-  
+  function guardar (){
+    firebase.database().ref("usuariosGoogle").set({
+      nombre:"BlisS",
+      edad:"15",
+      sexo:"x"
+    })
+  }*/
