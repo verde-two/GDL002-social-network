@@ -41,7 +41,7 @@
   <div id="screen2" class="page">
     <header class="container-fluid">
         <nav class="navbar navbar-dark" style="background-color: #546c2a;">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">Menu</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -52,10 +52,7 @@
                   <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link disabled" href="#">Disabled</a>
+                  <a class="nav-link" href="#">Perfil</a>
                 </li>
                 <li class="nav-item active">
                     <button id="close"> Cerrar sesion</button>
@@ -70,39 +67,41 @@
     <div class="container"></div>
     <!-- Introducir datos -->
     <div class="new-post"></div>
-    <div id="sub-menu">
-      <div id="left-bar">
-        <div class="heading">
-          Notifications
-        </div>
-      </div>
-      <div id="right-bar">
-      </div>
-    </div>
-    <div id="main-window">
-      <div class="post">
-        <div class="user">
-          <div class="user-img" id="img"></div>
-          <div class="user-info">
-            <div class="user-name" id="nombre"></div>
-            <span class="post-date">
-              15/09/2019</span>
-          </div>
-          <div class="actions">
-            <span class="heart"></span>
-            <span class="comment"></span>
-            <span class="share"></span>
-          </div>
-        </div>
-        <div class="content">
-          <input type="text" id="comentario" placeholder="comentario">
-          <button class="btn-info" id="boton" onclick="guardar()">Guardar</button>
-        </div>
-      </div>
-      <div id="newPost"></div>
-    </div>
+</div>
+<div id="sub-menu">
+<div id="left-bar">
+  <div class="heading">
+    Notifications
   </div>
+</div>
+<div id="right-bar">
+
+</div>
+</div>
+<div id="main-window">
+<div class="post">
+  <div class="user">
+    <div class="user-img"></div>
+    <div class="user-info">
+      <div class="user-name"><input type="text" id="nombre" placeholder="nombre"></div>
+      <span class="post-date"><input type="text" id="fecha" placeholder="fecha"></span>
+    </div>
+    
   </div>
+  <div class="content">
+    <input type="text" id="comentario" placeholder="comentario">
+    <button class="btn-info" id="boton" onclick="guardar()">Guardar</button>
+  </div>
+</div>
+<div id="newPost"></div>
+</div>
+<!--FIN NUEVOS DATOS-->
+          
+  </div>
+</div>
+</div>
+  
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
